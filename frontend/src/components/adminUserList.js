@@ -77,6 +77,7 @@ export default function UserList({userlist, token}) {
               return (
                 <tr>
                   <td width='250'><b>{user.account}</b></td>
+                  <td width='250'><b>Group {user.group}</b></td>
                   <td>
                   <Button variant="outlined" onClick={() => handleClickOpen(user.account)}>
                     Change password
