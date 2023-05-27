@@ -1,0 +1,67 @@
+version: '3'
+services:
+  frontend:
+    build: 
+      context: .
+      dockerfile: frontend.dev.Dockerfile
+    container_name: donation-web-frontend
+    volumes:
+      - /home/kaminyouho:/home/kaminyouho
+    working_dir: /home/kaminyouho/repos/donation-web/frontend
+    ports:
+      - 21000:3000
+    depends_on:
+      - backend
+    stdin_open: true
+    tty: true
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    container_name: donation-web-backend
+    environment:
+      - FLASK_DEBUG=1
+      - APP_SETTINGS=project.server.config.DevelopmentConfig
+      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:kaminyou@db:3306/spark
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - ADMIN_ACCOUNT=root
+    volumes:
+      - /home/kaminyouho:/home/kaminyouho
+    working_dir: /home/kaminyouho/repos/donation-web/backend
+    # command: gunicorn -c config.py wsgi:app
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+  db:
+    image: mysql:8
+    container_name: donation-web-db
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: kaminyou
+    ports:
+      - 23000:3306
+    volumes:
+      - ./backend/sql:/docker-entrypoint-initdb.d
+  backup:
+    build:
+      context: .
+      dockerfile: backup.Dockerfile
+    container_name: donation-web-backup
+    volumes:
+      - ./mysql/backup:/home/mysql/backup
+    environment:
+      - DB_DUMP_TARGET=/home/mysql/backup
+      - DB_USER=root
+      - DB_PASSWORD=kaminyou
+      - DB_SERVER=db
+      - DB_PORT=3306
+      - DB_DATABASE_NAME=spark
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - DB_BACKUP_HOUR_FREQ=12
+      - DB_BACKUP_OUTDATED_DAY_CRITERIA=5
+    depends_on:
+      - db
+      - backend
+    # command: celery -A backup worker -B --loglevel=info
