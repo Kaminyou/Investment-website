@@ -1,0 +1,237 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #3078b4 !important;
+  min-height: 100vh;
+  display: flex;
+  font-weight: 400;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,label,span {
+  font-weight: 500;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body, html, .App, #root, .auth-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-light {
+  background-color: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+
+.navbar-brand {
+  margin-left: 15px;
+}
+
+.main-wrapper {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+
+.auth-wrapper {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+.main-inner {
+  width: 1200px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+}
+
+.auth-inner {
+  width: 450px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+}
+
+.auth-wrapper .form-control:focus {
+  border-color: #000000;
+  box-shadow: none;
+}
+
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.custom-control-label {
+  font-weight: 400;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  padding-top: 10px;
+  color: #7f7d7d;
+  margin: 0;
+}
+
+.forgot-password a {
+  color: #3078b4;
+}
+
+.pantoneZOZl {
+  background-color: #3078b4 !important;
+  border: none !important;
+}
+
+.pantoneZOZl:hover {
+  background-color: #2b6a9e !important;
+}
+
+.pantoneZOZl:active {
+  background-color: #3078b4 !important;
+}
+
+.pantoneZOZl:focus {
+  background-color: #3078b4 !important;
+  border: none;
+}
+
+.pantoneRed {
+  background-color: #cc5848 !important;
+  border: none !important;
+}
+
+.pantoneRed:hover {
+  background-color: #ba3509 !important;
+}
+
+.pantoneRed:active {
+  background-color: #d4552b !important;
+}
+
+.pantoneRed:focus {
+  background-color: #e23c00 !important;
+  border: none;
+}
+
+.pantoneZOZ1a {
+  color: #3078b4 !important;
+}
+
+input[type=range] {
+  width: 100%;
+  margin: 7.85px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  background: #3078b4;
+  border: 0.2px solid #434852;
+  border-radius: 1.3px;
+  width: 100%;
+  height: 8.3px;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  margin-top: -8.05px;
+  width: 15px;
+  height: 24px;
+  background: #ffffff;
+  border: 1px solid #434852;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #5d9ed4;
+}
+input[type=range]::-moz-range-track {
+  background: #3078b4;
+  border: 0.2px solid #434852;
+  border-radius: 1.3px;
+  width: 100%;
+  height: 8.3px;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  width: 15px;
+  height: 24px;
+  background: #ffffff;
+  border: 1px solid #434852;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 8.55px 0;
+  color: transparent;
+  width: 100%;
+  height: 8.3px;
+  cursor: pointer;
+}
+input[type=range]::-ms-fill-lower {
+  background: #205078;
+  border: 0.2px solid #434852;
+  border-radius: 2.6px;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3078b4;
+  border: 0.2px solid #434852;
+  border-radius: 2.6px;
+}
+input[type=range]::-ms-thumb {
+  width: 15px;
+  height: 24px;
+  background: #ffffff;
+  border: 1px solid #434852;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3078b4;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #5d9ed4;
+}
+
+input[type="radio"]:checked + * {
+  color: #3078b4;
+}
