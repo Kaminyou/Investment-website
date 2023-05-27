@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+test_infer.py
+test_server.py
+test_crop.py
+*/test_crop.py
+*/test_infer.py
