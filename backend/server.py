@@ -18,16 +18,12 @@ from utils.parser import parse_user_instances, parse_personal_donation
 
 donationSchema = DonationSchema()
 userSchema = UserSchema()
-result_dir_root = os.environ.get("RESULT_DIR", "./results/")
-admin_account = os.environ.get("ADMIN_ACCOUNT", "root")
+admin_account = os.environ.get("ADMIN_ACCOUNT")
 
 app = Flask(__name__)
-app.config["JWT_SECRET_KEY"] = "please-remember-to-change-me"
+app.config["JWT_SECRET_KEY"] = os.getenv('JWT_SECRET_KEY',)
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
-    'SQLALCHEMY_DATABASE_URI',
-    default="mysql+pymysql://root:kaminyou@db:3306/spark",
-)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 jwt = JWTManager(app)
 CORS(app)
 db.init_app(app)

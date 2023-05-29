@@ -17,17 +17,18 @@ services:
     environment:
       - FLASK_DEBUG=1
       - APP_SETTINGS=project.server.config.DevelopmentConfig
-      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:kaminyou@db:3306/spark
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - SQLALCHEMY_DATABASE_URI=${SQLALCHEMY_DATABASE_URI}
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
-      - ADMIN_ACCOUNT=root
+      - ADMIN_ACCOUNT=${ADMIN_ACCOUNT}
     working_dir: /root/backend
     command: gunicorn -c config.py wsgi:app
     # command: bash
     # stdin_open: true
     # tty: true
     volumes:
-      - /home/kaminyouho:/home/kaminyouho
+      - /home/kaminyou:/home/kaminyou
     depends_on:
       - db
   db:
@@ -35,7 +36,7 @@ services:
     container_name: donation-web-db
     command: mysqld --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: kaminyou
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     ports:
       - 23000:3306
     volumes:
