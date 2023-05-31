@@ -28,7 +28,7 @@ jwt = JWTManager(app)
 CORS(app)
 db.init_app(app)
 
-MAX_INVESTMENT = 1000000
+MAX_INVESTMENT = 20000000
 
 
 @app.before_first_request
@@ -118,7 +118,7 @@ def refresh_expiring_jwts(response):
 
 @app.route('/api/submit/donation', methods=['POST'])
 @jwt_required()
-def submit_crop_request():
+def submit_donation_request():
     '''
     API to receive the donation request.
     '''
