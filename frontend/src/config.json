@@ -1,5 +1,5 @@
 {
     "REFRESH_DURATION": 10000,
     "MAX_INVEST": 20000000,
-    "VERSION": "v1.0.1"
+    "VERSION": "v1.1.0"
 }
